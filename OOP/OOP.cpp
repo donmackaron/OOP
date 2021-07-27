@@ -131,6 +131,7 @@ int main()
     double dif = fellow - creator;
     double diff = creator - fellow;
     std::cout << dif << " " << diff;
+    std::cout << std::endl;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
