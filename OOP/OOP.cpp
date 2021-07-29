@@ -103,8 +103,66 @@ public:
     }
 };
 
+class point2d {
+    public :
+        double x;
+        double y;
+        void set(double x1, double y1) {
+            x = x1;
+            y = y1;
+        }
+        double dist() {
+            return sqrt(x * x + y * y);
+        }
+        void show() {
+            std::cout << "Координаты точки в 2Д мире\n" << "x: " << x << " y: " << y <<std::endl;
+        }
+        void getinfo() {
+            show();
+            std::cout << dist() << std::endl;
+        }
+};
+
+class point3d : public point2d {
+public:
+    double z;
+    void set(double x1, double y1, double z1) {
+    point2d::set(x1, y1);
+        z = z1;
+    }
+    double dist() {
+        return sqrt(x * x + y * y + z * z);
+    }
+    void show() {
+        std::cout << "Координаты точки в 2Д мире\n" << "x: " << x << " y: " << y <<  " z: " << z << std::endl;
+    }
+    void getinfo() {
+        show();
+        std::cout << dist() << std::endl;
+    }
+};
+
+void OOP();
+void nasled();
+
 int main()
 {
+    setlocale(LC_ALL, "russian");
+    std::cout << "choice\n";
+    std::cout << "1. OOP\n";
+    std::cout << "2. наследованиеn\n";
+    int choice;
+    std::cout << "enter choice\n";
+    std::cin >> choice;
+    switch (choice) {
+    case 1:
+        OOP();
+    case 2:
+        nasled();
+    }
+}
+
+void OOP() {
     depozit creator("lolkek", 100, 10, 5);
     std::cout << "creator\n";
     creator.show();
@@ -132,6 +190,15 @@ int main()
     double diff = creator - fellow;
     std::cout << dif << " " << diff;
     std::cout << std::endl;
+}
+
+void nasled() {
+    point2d a;
+    a.set(3,4);
+    a.getinfo();
+    point3d b;
+    b. set(3, 4, 10);
+    b.getinfo();
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
