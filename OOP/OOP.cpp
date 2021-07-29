@@ -121,6 +121,10 @@ class point2d {
             show();
             std::cout << dist() << std::endl;
         }
+        point2d(double x1, double y1) {
+            set(x1, y1);
+            getinfo();
+        }
 };
 
 class point3d : public point2d {
@@ -136,6 +140,10 @@ public:
     }
     void show() {
         std::cout << "Координаты точки в 3Д мире\n" << "x: " << x << " y: " << y <<  " z: " << z << std::endl;
+    }
+    point3d(double x1, double y1, double z1) : point2d( x1,  y1) {
+        set(x1, y1, z1);
+        getinfo();
     }
     
 };
@@ -191,12 +199,10 @@ void OOP() {
 }
 
 void nasled() {
-    point2d a;
-    a.set(3,4);
-    a.getinfo();
-    point3d b;
-    b. set(3, 4, 10);
-    b.getinfo();
+    point2d a(3,4);
+    
+    point3d b(3, 4, 10);
+    
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
