@@ -111,13 +111,13 @@ class point2d {
             x = x1;
             y = y1;
         }
-        double dist() {
+       virtual double dist() {
             return sqrt(x * x + y * y);
         }
-        void show() {
+       virtual void show() {
             std::cout << "Координаты точки в 2Д мире\n" << "x: " << x << " y: " << y <<std::endl;
         }
-        void getinfo() {
+        virtual void getinfo() {
             show();
             std::cout << dist() << std::endl;
         }
@@ -125,21 +125,19 @@ class point2d {
 
 class point3d : public point2d {
 public:
+    using point2d::set;
     double z;
     void set(double x1, double y1, double z1) {
-    point2d::set(x1, y1);
+    set(x1, y1);
         z = z1;
     }
     double dist() {
         return sqrt(x * x + y * y + z * z);
     }
     void show() {
-        std::cout << "Координаты точки в 2Д мире\n" << "x: " << x << " y: " << y <<  " z: " << z << std::endl;
+        std::cout << "Координаты точки в 3Д мире\n" << "x: " << x << " y: " << y <<  " z: " << z << std::endl;
     }
-    void getinfo() {
-        show();
-        std::cout << dist() << std::endl;
-    }
+    
 };
 
 void OOP();
