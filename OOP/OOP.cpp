@@ -147,6 +147,72 @@ public:
     
 };
 
+class base {
+public:
+    double pi;
+    double s2;
+    double s3;
+    double size;
+    std::string name;
+    virtual double volum() = 0;
+    virtual double area() = 0;
+    void set(double l, std::string figure) {
+        size = l;
+        name = figure;
+    }
+    void show() {
+        std::cout << "Данные фигуры: " << name << std::endl;
+        std::cout << "объём: " << volum() << std::endl;
+        std::cout << "площадь: " << area() << std::endl;
+    }
+    base(double l, std::string figure) {
+        pi = 3.14;
+        s2 = sqrt(2);
+        s3 = sqrt(3);
+        set(l, figure);
+        
+    }
+};
+
+class qube : public base {
+public:
+    qube(double l) : base(l, "куб") {
+        show();
+    }
+    double volum() {
+        return size *size*size;
+    }
+    double area() {
+        return 6 * size * size;
+    }
+};
+
+class sphere : public base {
+public:
+    sphere(double l) :base(l, "Сфера") {
+        show();
+    }
+    double volum() {
+        return (4 * pi * size * size * size) / 3;
+    }
+    double area() {
+        return 4 * pi * size * size;
+    }
+};
+
+class tetraeder : public base {
+public:
+    tetraeder(double l) : base(l, "тетраедер") {
+        show();
+    }
+    double volum() {
+        return ( s2 * size * size * size) / 12;
+    }
+    double area() {
+        return s3 * size * size;
+    }
+};
+
 void OOP();
 void nasled();
 void figure();
@@ -213,6 +279,13 @@ void nasled() {
     point3d b(3, 4, 10);
     
     point2d c(2, 5);
+}
+
+void figure() {
+    qube cube(10);
+    sphere sph(10);
+    tetraeder tet(10);
+
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
