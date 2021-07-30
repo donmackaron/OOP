@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 
+
 class depozit {
 private:
     std::string name;
@@ -23,8 +24,6 @@ private:
             std::cout << "| sum\t" << "| time\t";
         }
             std::cout << "| % \t" << "| value |\n";
-        
-        
     }
     void showdata(double m, int t) {
         std::cout << "| " << name << "  \t";
@@ -114,7 +113,7 @@ class point2d {
        virtual double dist() {
             return sqrt(x * x + y * y);
         }
-       virtual void show() {
+       void show() {
             std::cout << "Координаты точки в 2Д мире\n" << "x: " << x << " y: " << y <<std::endl;
         }
         virtual void getinfo() {
@@ -150,21 +149,31 @@ public:
 
 void OOP();
 void nasled();
+void figure();
 
 int main()
 {
     setlocale(LC_ALL, "russian");
     std::cout << "choice\n";
     std::cout << "1. OOP\n";
-    std::cout << "2. наследованиеn\n";
+    std::cout << "2. наследование\n";
+    std::cout << "3. Площадь фигуры\n";
     int choice;
     std::cout << "enter choice\n";
     std::cin >> choice;
     switch (choice) {
     case 1:
         OOP();
+        break;
     case 2:
         nasled();
+        break;
+
+    case 3:
+        figure();
+        break;
+    default :
+        break;
     }
 }
 
@@ -203,6 +212,7 @@ void nasled() {
     
     point3d b(3, 4, 10);
     
+    point2d c(2, 5);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
