@@ -213,9 +213,36 @@ public:
     }
 };
 
+class Base {
+public:
+    std::string name;
+    virtual void show() {
+        std::cout << "class Base" << name << std::endl;
+    }
+};
+
+class alpha : public Base {
+public:
+    void show() {
+        std::cout << "class alpha" << name << std::endl;
+    }
+    void names() {
+        name = " names alpha";
+        show();
+    }
+};
+
+class beta : public Base {
+public:
+    void show() {
+        std::cout << "class beta" << name << std::endl;
+    }
+};
+
 void OOP();
 void nasled();
 void figure();
+void reference();
 
 int main()
 {
@@ -224,6 +251,7 @@ int main()
     std::cout << "1. OOP\n";
     std::cout << "2. наследование\n";
     std::cout << "3. Площадь фигуры\n";
+    std::cout << "4. ССылка\n";
     int choice;
     std::cout << "enter choice\n";
     std::cin >> choice;
@@ -237,6 +265,9 @@ int main()
 
     case 3:
         figure();
+        break;
+    case 4:
+        reference();
         break;
     default :
         break;
@@ -286,6 +317,31 @@ void figure() {
     sphere sph(10);
     tetraeder tet(10);
 
+}
+
+void reference() {
+    Base obj;
+    alpha obja;
+    beta objB;
+    obj.name = " Base";
+    obj.show();
+    obja.name = " alpha";
+    obja.show();
+    objB.name = " Beta";
+    objB.show();
+    Base& ref = obj;
+    Base& ref1 = obja;
+    Base& ref2 = objB;
+    obj.name = " Base1";
+    obja.name = " alpha1";
+    objB.name = " Beta1";
+    ref.show();
+    ref1.show();
+    ref2.show();
+    obj = obja;
+    obj.show();
+    obja.names();
+    
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
