@@ -239,10 +239,34 @@ public:
     }
 };
 
+class swapster {
+public:
+    std::string name;
+    swapster(std::string txt) {
+        name = txt;
+    }
+    void show() {
+        std::cout << "name class" << name<<std::endl;
+    }
+    void swap(swapster obj) {
+        std::cout << "before swap" << std::endl;
+        show();
+        obj.show();
+        std::string txt;
+        txt = obj.name;
+        obj.name = name;
+        name = txt;
+        std::cout << "after swap" << std::endl;
+        show();
+        obj.show();
+    }
+};
+
 void OOP();
 void nasled();
 void figure();
 void reference();
+void swaping();
 
 int main()
 {
@@ -252,6 +276,7 @@ int main()
     std::cout << "2. наследование\n";
     std::cout << "3. Площадь фигуры\n";
     std::cout << "4. ССылка\n";
+    std::cout << "5. Обмен данными между объектами\n";
     int choice;
     std::cout << "enter choice\n";
     std::cin >> choice;
@@ -268,6 +293,9 @@ int main()
         break;
     case 4:
         reference();
+        break;
+    case 5:
+        swaping();
         break;
     default :
         break;
@@ -342,6 +370,16 @@ void reference() {
     obj.show();
     obja.names();
     
+}
+
+void swaping() {
+    swapster A("red");
+    swapster B("Green");
+    A.show();
+    B.show();
+    A.swap(B);
+    A.show();
+    B.show();
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
