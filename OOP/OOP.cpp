@@ -248,7 +248,7 @@ public:
     void show() {
         std::cout << "name class" << name<<std::endl;
     }
-    void swap(swapster obj) {
+    void swap(swapster &obj) {
         std::cout << "before swap" << std::endl;
         show();
         obj.show();
