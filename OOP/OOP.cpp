@@ -407,15 +407,19 @@ void swaping() {
 }
 
 void destraction() {
+    dest a("static");
+    std::cout << std::endl;
     for (int i = 0; i < 2; i++) {
-        dest a("static");
+        
         dest* p = new dest("dynamic");
         p->show();
         delete p;
         a.show();
         std::cout<<std::endl;
     }
+
     std::cout << "end program";
+    a.show();
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
