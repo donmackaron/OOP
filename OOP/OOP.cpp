@@ -262,14 +262,34 @@ public:
     }
 };
 
+class dest {
+private:
+    std::string name;
+public:
+    dest(std::string txt) {
+        name = txt;
+        std::cout << "create " << name << std::endl;
+    }
+    ~dest(){
+        std::cout << "destroy " << name << std::endl;
+     }
+    void show() {
+        std::cout << "start metod\n";
+        dest b("local");
+        std::cout << "end metod\n";
+    }
+};
+
 void OOP();
 void nasled();
 void figure();
 void reference();
 void swaping();
+void destraction();
 
 int main()
 {
+    
     setlocale(LC_ALL, "russian");
     std::cout << "choice\n";
     std::cout << "1. OOP\n";
@@ -277,6 +297,7 @@ int main()
     std::cout << "3. Площадь фигуры\n";
     std::cout << "4. ССылка\n";
     std::cout << "5. Обмен данными между объектами\n";
+    std::cout << "6. устрой дестрой\n";
     int choice;
     std::cout << "enter choice\n";
     std::cin >> choice;
@@ -296,6 +317,9 @@ int main()
         break;
     case 5:
         swaping();
+        break;
+    case 6:
+        destraction();
         break;
     default :
         break;
@@ -380,6 +404,18 @@ void swaping() {
     A.swap(B);
     A.show();
     B.show();
+}
+
+void destraction() {
+    for (int i = 0; i < 2; i++) {
+        dest a("static");
+        dest* p = new dest("dynamic");
+        p->show();
+        delete p;
+        a.show();
+        std::cout<<std::endl;
+    }
+    std::cout << "end program";
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
