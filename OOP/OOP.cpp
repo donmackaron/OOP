@@ -280,12 +280,34 @@ public:
     }
 };
 
+class list {
+private:
+    int num;
+public:
+    list* node;
+    list(int m) {
+        num = m;
+    }
+    void show() {
+        
+            std::cout << num << std::endl;
+        
+    }
+    ~list() {
+        if (node != NULL) {
+            delete node;
+            std::cout << "delete node\n";
+        }
+    }
+};
+
 void OOP();
 void nasled();
 void figure();
 void reference();
 void swaping();
 void destraction();
+void create_list();
 
 int main()
 {
@@ -298,6 +320,7 @@ int main()
     std::cout << "4. ССылка\n";
     std::cout << "5. Обмен данными между объектами\n";
     std::cout << "6. устрой дестрой\n";
+    std::cout << "7. Ну типа список \n";
     int choice;
     std::cout << "enter choice\n";
     std::cin >> choice;
@@ -320,6 +343,9 @@ int main()
         break;
     case 6:
         destraction();
+        break;
+    case 7:
+        create_list();
         break;
     default :
         break;
@@ -420,6 +446,38 @@ void destraction() {
 
     std::cout << "end program";
     a.show();
+}
+
+void create_list() {
+    list *first=new list(1);
+    list* p;
+    p=first;
+    for (int i = 0; i < 10; i++) {
+        p->node= new list(i + 1);
+        p = p->node;
+    }
+    p->node = NULL;
+    p = first;
+    for (int i = 0; i < 10; i++) {
+        p->show();
+        p = p->node;
+    }
+    p = first;
+    for (int i = 0; i < 11; i++) {
+        if (i == 10) {
+            p->node = new list(12);
+            
+        }
+        p = p->node;
+    }
+    p->node = NULL;
+    p = first;
+  
+    for (int i = 0; i < 12; i++) {
+        p->show();
+        p = p->node;
+    }
+    delete first;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
